@@ -22,13 +22,22 @@ def predict():
 
     # predictions
     result = model.predict(data_df)
+    
+    # Linhas acrescentadas pois o modelo preve: Sobreviveu ou Morreu
+    # E a api esta valores inteiros 0 e 1
+
+    if result[0] == "Sobreviveu":
+        status = 1
+    else:
+        status = 0
+       
 
     # send back to browser
-    output = {'results': result[0]}
+    #output = {'results': int(result[0])}
+    output = {'results': int(status)}
 
     # return data
-    #return jsonify(results=output)
-    return results = output
+    return jsonify(results=output)
 
 if __name__ == '__main__':
     app.run(port = 5000, debug=True)
