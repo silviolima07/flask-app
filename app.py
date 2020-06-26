@@ -4,7 +4,7 @@ import pickle
 
 # load model
 filename = "RFmodel.sav"
-model = pickle.load(open(filename,'rb'))
+model_rf = pickle.load(open(filename,'rb'))
 
 # app
 app = Flask(__name__)
@@ -12,19 +12,30 @@ app = Flask(__name__)
 # routes
 @app.route('/', methods=['POST'])
 
+# get data
+data = request.get_json(force=True)
+
+# convert data into dataframe
+data.update((x, [y]) for x, y in data.items())
+data_df = pd.DataFrame.from_dict(data)
+modelo = data_df[0]
+data_df = data_df.drop[0]
+
+print("Modelo:", modelo)
+
 def predict():
     # get data
-    data = request.get_json(force=True)
+    #data = request.get_json(force=True)
 
     # convert data into dataframe
-    data.update((x, [y]) for x, y in data.items())
-    data_df = pd.DataFrame.from_dict(data)
-
+    #data.update((x, [y]) for x, y in data.items())
+    #data_df = pd.DataFrame.from_dict(data)
+    
     # predictions
-    result = model.predict(data_df)
+    result = model_rf.predict(data_df)
     
     # Linhas acrescentadas pois o modelo preve: Sobreviveu ou Morreu
-    # E a api esta valores inteiros 0 e 1
+    # E a api espera valores inteiros: 0 e 1
 
     if result[0] == "Sobreviveu":
         status = 1
