@@ -32,6 +32,7 @@ def predict():
     data_df = pd.DataFrame.from_dict(data)
     
     print("data_df:", data_df.columns)
+    print("Column1:", data_df.Classe)
     
 
 
