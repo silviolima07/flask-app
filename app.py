@@ -19,7 +19,7 @@ data = request.get_json(force=True)
 data.update((x, [y]) for x, y in data.items())
 data_df = pd.DataFrame.from_dict(data)
 modelo = data_df[0]
-data_df = data_df.drop[0]
+data_df = data_df.drop(['modelo'], axis=1)
 
 print("Modelo:", modelo)
 
