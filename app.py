@@ -33,6 +33,8 @@ def predict():
     
     modelo = data_df['modelo']
     
+    print("Modelo:", modelo)
+
     if modelo == 'titanic':
         # predictions
         result = model_rf.predict(data_df)
