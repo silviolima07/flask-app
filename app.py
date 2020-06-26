@@ -31,6 +31,7 @@ def predict():
     data.update((x, [y]) for x, y in data.items())
     data_df = pd.DataFrame.from_dict(data)
     
+    print("data_df:", data_df)
     modelo = data_df['modelo']
     
     print("Modelo:", modelo)
