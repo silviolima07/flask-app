@@ -13,34 +13,37 @@ app = Flask(__name__)
 @app.route('/', methods=['POST'])
 
 # get data
-data = request.get_json(force=True)
+#####data = request.get_json(force=True)
 
 # convert data into dataframe
-data.update((x, [y]) for x, y in data.items())
-data_df = pd.DataFrame.from_dict(data)
-modelo = data_df[0]
-data_df = data_df.drop(['modelo'], axis=1)
+####data.update((x, [y]) for x, y in data.items())
+####data_df = pd.DataFrame.from_dict(data)
+####modelo = data_df[0]
+####data_df = data_df.drop(['modelo'], axis=1)
 
-print("Modelo:", modelo)
+#####print("Modelo:", modelo)
 
 def predict():
     # get data
-    #data = request.get_json(force=True)
+    data = request.get_json(force=True)
 
     # convert data into dataframe
-    #data.update((x, [y]) for x, y in data.items())
-    #data_df = pd.DataFrame.from_dict(data)
+    data.update((x, [y]) for x, y in data.items())
+    data_df = pd.DataFrame.from_dict(data)
     
-    # predictions
-    result = model_rf.predict(data_df)
+    modelo = data_df['modelo']
     
-    # Linhas acrescentadas pois o modelo preve: Sobreviveu ou Morreu
-    # E a api espera valores inteiros: 0 e 1
+    if modelo == 'titanic':
+        # predictions
+        result = model_rf.predict(data_df)
+    
+         # Linhas acrescentadas pois o modelo preve: Sobreviveu ou Morreu
+         # E a api espera valores inteiros: 0 e 1
 
-    if result[0] == "Sobreviveu":
-        status = 1
-    else:
-        status = 0
+        if result[0] == "Sobreviveu":
+            status = 1
+        else:
+            status = 0
        
 
     # send back to browser
