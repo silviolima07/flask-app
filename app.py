@@ -35,8 +35,9 @@ def predict():
     
     print("Modelo:", modelo)
 
-    if modelo == 'titanic':
+    if modelo == '0    titanic':  # flag indica que devemos usar o modelo_rf
         # predictions
+        data_df = data_df.drop(['modelo'], axis=1)
         result = model_rf.predict(data_df)
     
          # Linhas acrescentadas pois o modelo preve: Sobreviveu ou Morreu
