@@ -51,7 +51,7 @@ def predict():
         result = model_et.predict(data_df)
         # send back to browser
         #output = {'results': int(result[0])}
-        output = {'results': float64(status)}
+        output = {'results': float(status)}
 
     # return data
     return jsonify(results=output)
