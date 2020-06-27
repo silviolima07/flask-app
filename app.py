@@ -6,8 +6,8 @@ import pickle
 filename_rf = "RFmodel.sav"
 model_rf = pickle.load(open(filename_rf,'rb'))
 #
-filename_et = "ExtraTreesRegressor.sav"
-model_et = pickle.load(open(filename_et,'rb'))
+filename_rfr = "RandomForestRegressor.sav"
+model_rfr = pickle.load(open(filename_rfr,'rb'))
 
 # app
 app = Flask(__name__)
