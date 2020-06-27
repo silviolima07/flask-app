@@ -30,22 +30,19 @@ def predict():
     # convert data into dataframe
     data.update((x, [y]) for x, y in data.items())
     data_df = pd.DataFrame.from_dict(data)
+     
+    colunas = data_df.columns
+    if ('Classe' in colunas):
+        # predictions
+        result = model_rf.predict(data_df)
     
-    print("data_df:", data_df.columns)
-    print("Column1:", data_df.Classe)
-    
+        # Linhas acrescentadas pois o modelo preve: Sobreviveu ou Morreu
+        # E a api espera valores inteiros: 0 e 1
 
-
-    # predictions
-    result = model_rf.predict(data_df)
-    
-    # Linhas acrescentadas pois o modelo preve: Sobreviveu ou Morreu
-    # E a api espera valores inteiros: 0 e 1
-
-    if result[0] == "Sobreviveu":
-        status = 1
-    else:
-        status = 0
+        if result[0] == "Sobreviveu":
+            status = 1
+        else:
+            status = 0
        
 
     # send back to browser
