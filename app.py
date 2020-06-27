@@ -23,15 +23,18 @@ def predict():
     # convert data into dataframe
     data.update((x, [y]) for x, y in data.items())
     data_df = pd.DataFrame.from_dict(data)
-     
+    
+    print("Data_df:", data_df) 
     colunas = data_df.columns
+    print("Colunas:", colunas)
+
     if ('Classe' in colunas):
         # predictions - classification 
         result = model_rf.predict(data_df)
     
         # Linhas acrescentadas pois o modelo preve: Sobreviveu ou Morreu
         # E a api espera valores inteiros: 0 e 1
-
+        
         if result[0] == "Sobreviveu":
             status = 1
         else:
