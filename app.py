@@ -49,7 +49,7 @@ def predict():
         print("Previsao de valor de venda")
         print("Dados: ", data_df)
         #   
-        result = model_et.predict(data_df)
+        result = model_rfr.predict(data_df)
         print("Result:", result)
         # send back to browser
         output = {'results': int(result[0])}
