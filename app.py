@@ -49,9 +49,10 @@ def predict():
         print("Previsao de valor de venda")
         #   
         result = model_et.predict(data_df)
+        print("Result:", result)
         # send back to browser
-        #output = {'results': int(result[0])}
-        output = {'results': float(status)}
+        output = {'results': float(result[0])}
+        #output = {'results': float(status)}
 
     # return data
     return jsonify(results=output)
