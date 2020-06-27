@@ -6,6 +6,7 @@ import pickle
 filename_rf = "RFmodel.sav"
 model_rf = pickle.load(open(filename_rf,'rb'))
 #
+# Modelo criado sem fazer o StandartScaler
 filename_rfr = "RandomForestRegressor.sav"
 model_rfr = pickle.load(open(filename_rfr,'rb'))
 
