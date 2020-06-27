@@ -47,6 +47,7 @@ def predict():
     elif ('area_total_clean' in colunas):
         # predictions - regression
         print("Previsao de valor de venda")
+        print("Dados: ", data_df)
         #   
         result = model_et.predict(data_df)
         print("Result:", result)
