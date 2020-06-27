@@ -4,10 +4,10 @@ import pickle
 
 # load model
 filename_rf = "RFmodel.sav"
-model_rf = pickle.load(open(filename,'rb'))
+model_rf = pickle.load(open(filename_rf,'rb'))
 #
 filename_et = "ExtraTreesRegressor.sav"
-model_et = pickle.load(open(filename,'rb'))
+model_et = pickle.load(open(filename_et,'rb'))
 
 # app
 app = Flask(__name__)
