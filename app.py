@@ -17,10 +17,6 @@ app = Flask(__name__)
 # routes
 @app.route('/', methods=['POST'])
 
-df_modelos = pd.read_csv("modelos_bairros.csv")
-
-
-
 
 def predict():
     
@@ -52,6 +48,8 @@ def predict():
         output = {'results': int(status)}
     
     elif ('area_total_clean' in colunas):
+        #
+        df_modelos = pd.read_csv("modelos_bairros.csv")
         # predictions - regression
         print("Previsao de valor de venda")
         # Salvar a informação do bairro que esta na coluna 0 dos dados enviados - data_df
