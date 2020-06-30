@@ -54,17 +54,18 @@ def predict():
         print("Previsao de valor de venda")
         # Salvar a informação do bairro que esta na coluna 0 dos dados enviados - data_df
         bairro = data_df.bairro
+        print("Bairro enviado:", bairro)
         # Remover esta coluna dos dados enviado, pois o modelo nao foi treinado com esta informação
         data_df = data_df.drop['bairro']
-        print("Dados: ", data_df)
+        print("Dados enviados: ", data_df)
         #
         # O modelo treinado a ser usado nas previsões é definido pelo bairro
-        reg = df_modelos['Bairro'] == bairro].Modelo_treinado
-        result = reg.predict(data_df)
+        #reg = df_modelos['Bairro'] == bairro].Modelo_treinado
+        #result = reg.predict(data_df)
         #result = model_rfr.predict(data_df)
-        print("Result:", result)
+        #print("Result:", result)
         # send back to browser
-        output = {'results': int(result[0])}
+        #output = {'results': int(result[0])}
         #output = {'results': float(status)}
 
     # return data
