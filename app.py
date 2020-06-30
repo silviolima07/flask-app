@@ -17,6 +17,11 @@ app = Flask(__name__)
 @app.route('/', methods=['POST'])
 
 
+df_modelos = pd.read_csv("modelos_bairros.csv")
+
+
+
+
 def predict():
     # get data
     data = request.get_json(force=True)
@@ -31,7 +36,7 @@ def predict():
 
     if ('Classe' in colunas):
         # predictions - classification 
-        result = model_rf.predict(data_df)
+        result = df_modelos.Modelo_treinado[0].predict(data_df)
     
         # Linhas acrescentadas pois o modelo preve: Sobreviveu ou Morreu
         # E a api espera valores inteiros: 0 e 1
