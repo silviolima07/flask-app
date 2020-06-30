@@ -17,12 +17,13 @@ app = Flask(__name__)
 @app.route('/', methods=['POST'])
 
 
-df_modelos = pd.read_csv("modelos_bairros.csv")
+
 
 
 
 
 def predict():
+    df_modelos = pd.read_csv("modelos_bairros.csv")
     # get data
     data = request.get_json(force=True)
 
