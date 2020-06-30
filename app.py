@@ -56,7 +56,7 @@ def predict():
         bairro = list(data_df.bairro)
         print("Bairro enviado:", bairro)
         # Remover esta coluna dos dados enviado, pois o modelo nao foi treinado com esta informação
-        data_df = data_df[:,1:]  # Ira pegar os dados da coluna 1 em diante
+        data_df = data_df['area_total_clean','area_util_clean', 'quarto_clean', 'banheiro_clean', 'vaga_clean']
         print("Dados enviados: ", data_df)
         #
         # O modelo treinado a ser usado nas previsões é definido pelo bairro
