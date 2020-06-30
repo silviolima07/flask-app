@@ -2,10 +2,11 @@ import pandas as pd
 from flask import Flask, jsonify, request
 import pickle
 
-# load model
+# load model do dataset Titanic
 filename_rf = "RFmodel.sav"
 model_rf = pickle.load(open(filename_rf,'rb'))
 #
+# Modelos para do dataset Imoveis
 # Modelo criado sem fazer o StandartScaler
 filename_rfr = "RandomForestRegressor.sav"
 model_rfr = pickle.load(open(filename_rfr,'rb'))
@@ -16,14 +17,13 @@ app = Flask(__name__)
 # routes
 @app.route('/', methods=['POST'])
 
-
-
+df_modelos = pd.read_csv("modelos_bairros.csv")
 
 
 
 
 def predict():
-    df_modelos = pd.read_csv("modelos_bairros.csv")
+    
     # get data
     data = request.get_json(force=True)
 
@@ -37,7 +37,7 @@ def predict():
 
     if ('Classe' in colunas):
         # predictions - classification 
-        result = df_modelos.Modelo_treinado[0].predict(data_df)
+        result = model_rf.predict(data_df)
     
         # Linhas acrescentadas pois o modelo preve: Sobreviveu ou Morreu
         # E a api espera valores inteiros: 0 e 1
@@ -54,9 +54,16 @@ def predict():
     elif ('area_total_clean' in colunas):
         # predictions - regression
         print("Previsao de valor de venda")
+        # Salvar a informação do bairro que esta na coluna 0 dos dados enviados - data_df
+        bairro = data_df.bairro
+        # Remover esta coluna dos dados enviado, pois o modelo nao foi treinado com esta informação
+        data_df = data_df.drop['bairro']
         print("Dados: ", data_df)
-        #   
-        result = model_rfr.predict(data_df)
+        #
+        # O modelo treinado a ser usado nas previsões é definido pelo bairro
+        reg = df_modelos['Bairro'] == bairro].Modelo_treinado
+        result = reg.predict(data_df)
+        #result = model_rfr.predict(data_df)
         print("Result:", result)
         # send back to browser
         output = {'results': int(result[0])}
