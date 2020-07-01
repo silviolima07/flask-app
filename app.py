@@ -78,10 +78,12 @@ def predict():
         data_df = data_df[['area_total_clean','area_util_clean', 'quarto_clean', 'banheiro_clean', 'vaga_clean']]
         print("Dados enviados: ", data_df)
         #
+        print("Model Moema:", model_Moema)
         bairro = str(bairro)
         print ("Bairro:", bairro) # ['Moema']
         if bairro == ['Moema'] :  
             reg = model_Moema
+            print("Teste bairro igual Moema")
         if bairro == ['Perdizes']:
             reg = model_Perdizes
         if bairro == ['Brooklin']:
