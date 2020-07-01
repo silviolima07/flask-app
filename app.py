@@ -12,7 +12,7 @@ model_rf = pickle.load(open(filename_rf,'rb'))
 filename_rfr = "RandomForestRegressor.sav"
 model_rfr = pickle.load(open(filename_rfr,'rb'))
 #
-model_Moema = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Moema.sav','rb'))
+model_Moema = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Moema.sav','rb'))
 
 #model_Perdizes = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Perdizes.sav','rb'))
 #model_Brooklin = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Brooklin.sav','rb'))
@@ -134,10 +134,10 @@ def predict():
         #result = model_rfr.predict(data_df)
         print("Result:", result)
         # send back to browser
-        result00 = round(np.expm1(int(result[0])),3)
-        output = {'results' : result00}
-        print("Result após np.exp1m:", result00)
-        ##output = {'results': int(result[0])}  # Original ok
+        #result00 = round(np.expm1(int(result[0])),3)
+        #output = {'results' : result00}
+        #print("Result após np.exp1m:", result00)
+        output = {'results': int(result[0])}  # Original ok
         #output = {'results': float(status)}
 
         #return data
