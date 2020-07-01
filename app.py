@@ -114,10 +114,10 @@ def predict():
         #result = model_rfr.predict(data_df)
         print("Result:", result)
         # send back to browser
-        output = {'results': int(result[0])}
+        #output = {'results': int(result[0])}
         output = {'results': float(status)}
 
-     return data
+        #return data
     return jsonify(results=output)
 
 if __name__ == '__main__':
