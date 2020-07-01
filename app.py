@@ -1,7 +1,7 @@
 import pandas as pd
 from flask import Flask, jsonify, request
 import pickle
-import numpu as np
+import numpy as np
 
 # load model do dataset Titanic
 filename_rf = "RFmodel.sav"
