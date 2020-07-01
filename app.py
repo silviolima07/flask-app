@@ -101,31 +101,39 @@ def predict():
         if 'Vila Mariana' in bairro:
             reg = model_Vila_Mariana
 
-        if bairro == ['Vila Nova Conceição']:
+        if 'Vila Nova Conceição' in bairro:
             reg = model_Vila_Nova_Conceicao
-        if bairro == ['Vila Mascote']:
+
+        if 'Vila Mascote' in bairro:
             reg = model_Vila_Mascote
-        if bairro == ['Jardim Marajoara']:
+
+        if 'Jardim Marajoara' in bairro:
             reg = model_Jardim_Marajoara 
-        if bairro == ['Vila Romana']:
+
+        if 'Vila Romana' in bairro:
             reg = model_Vila_Romana
-        if bairro == ['Morumbi']: 
+
+        if 'Morumbi' in bairro: 
            reg = model_Morumbi
-        if bairro == ['Vila Leopoldina']:
+
+        if 'Vila Leopoldina' in bairro:
            reg = model_Vila_Leopoldina
-        if bairro == ['Campo Belo']:
+
+        if 'Campo Belo' in bairro:
            reg = model_Campo_Belo
-        if bairro ==  ['Santana']:
+
+        if 'Santana' in bairro:
            reg = model_Santana
-        if bairro == ['Chácara Santo Antônio']:
+
+        if 'Chácara Santo Antônio' in bairro:
            reg = model_Chacara_Santo_Antonio
             
         result = reg.predict(data_df)
         #result = model_rfr.predict(data_df)
         print("Result:", result)
         # send back to browser
-        #output = {'results': int(result[0])}
-        output = {'results': float(status)}
+        output = {'results': int(result[0])}
+        #output = {'results': float(status)}
 
         #return data
     return jsonify(results=output)
