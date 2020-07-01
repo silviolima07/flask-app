@@ -79,36 +79,36 @@ def predict():
         print("Dados enviados: ", data_df)
         #
         bairro = str(bairro)
-        print ("Bairro:", bairro)
-        if bairro == 'Moema':  
+        print ("Bairro:", bairro) # ['Moema']
+        if bairro == ['Moema'] :  
             reg = model_Moema
-        if bairro == 'Perdizes':
+        if bairro == ['Perdizes']:
             reg = model_Perdizes
-        if bairro == 'Brooklin':
+        if bairro == ['Brooklin']:
             reg = model_Brooklin
-        if bairro == "Jardim Paulista":
+        if bairro == ['Jardim Paulista']:
             reg = model_Jardim_Paulista
-        if bairro ==  "Pinheiros":
+        if bairro ==  ['Pinheiros']:
             reg = model_Pinheiros
-        if bairro == "Vila Mariana":
+        if bairro == ['Vila Mariana']:
             reg = model_Vila_Mariana
-        if bairro == "Vila Nova Conceição":
+        if bairro == ['Vila Nova Conceição']:
             reg = model_Vila_Nova_Conceicao
-        if bairro == "Vila Mascote":
+        if bairro == ['Vila Mascote']:
             reg = model_Vila_Mascote
-        if bairro == "Jardim Marajoara":
+        if bairro == ['Jardim Marajoara']:
             reg = model_Jardim_Marajoara 
-        if bairro == "Vila Romana":
+        if bairro == ['Vila Romana']:
             reg = model_Vila_Romana
-        if bairro == "Morumbi": 
+        if bairro == ['Morumbi']: 
            reg = model_Morumbi
-        if bairro == "Vila Leopoldina":
+        if bairro == ['Vila Leopoldina']:
            reg = model_Vila_Leopoldina
-        if bairro == "Campo Belo":
+        if bairro == ['Campo Belo']:
            reg = model_Campo_Belo
-        if bairro ==  "Santana":
+        if bairro ==  ['Santana']:
            reg = model_Santana
-        if bairro == "Chácara Santo Antônio":
+        if bairro == ['Chácara Santo Antônio']:
            reg = model_Chacara_Santo_Antonio
             
         result = reg.predict(data_df)
