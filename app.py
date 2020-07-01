@@ -11,7 +11,7 @@ model_rf = pickle.load(open(filename_rf,'rb'))
 filename_rfr = "RandomForestRegressor.sav"
 model_rfr = pickle.load(open(filename_rfr,'rb'))
 #
-model_Moema = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Moema.sav','rb'))
+model_Moema = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Moema.sav','rb'))
 model_Perdizes = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Perdizes.sav','rb'))
 model_Brooklin = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Brooklin.sav','rb'))
 model_Jardim_Paulista = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Jardim_Paulista.sav','rb'))
@@ -22,7 +22,7 @@ model_Vila_Mascote = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Vila
 model_Jardim_Marajoara = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Jardim_Marajoara.sav','rb'))
 model_Vila_Romana = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Vila_Romana.sav','rb'))
 model_Morumbi = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Morumbi.sav','rb'))
-model_Vila_Leopoldina = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Vila_Leopoldina.sav','rb'))
+model_Vila_Leopoldina = pickle.load(open('Modelo_Bairros/KNeighborsRegressor-Vila_Leopoldina.sav','rb'))
 model_Campo_Belo = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Campo_Belo.sav','rb'))
 model_Santana = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Santana.sav','rb'))
 model_Chacara_Santo_Antonio = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Chácara_Santo_Antônio.sav','rb'))
