@@ -71,11 +71,18 @@ def predict():
         print("Previsao de valor de venda")
         # Salvar a informação do bairro que esta na coluna 0 dos dados enviados - data_df
         bairro = list(data_df.bairro)
+        bairro2 = data_df.bairro
         print("Bairro enviado:", bairro)
         # Remover esta coluna dos dados enviado, pois o modelo nao foi treinado com esta informação
         data_df = data_df[['area_total_clean','area_util_clean', 'quarto_clean', 'banheiro_clean', 'vaga_clean']]
         print("Dados enviados: ", data_df)
         #
+        if 'Moema' in bairro:
+            print("Sim, Moema em bairro")
+        
+        if 'Moema' in bairro2:
+            print("Sim, Moema em bairro2")
+
         print("Model Moema:", model_Moema)
         bairro = str(bairro)
         print ("Bairro:", bairro) # ['Moema']
