@@ -65,7 +65,8 @@ def predict():
         #output = {'results': int(result[0])}
         output = {'results': int(status)}
     
-    elif ('area_total_clean' in colunas):
+    elif ('area_total_clean' in
+ colunas):
         #
         df_modelos = pd.read_csv("modelos_bairros.csv")
         # predictions - regression
@@ -77,37 +78,37 @@ def predict():
         data_df = data_df[['area_total_clean','area_util_clean', 'quarto_clean', 'banheiro_clean', 'vaga_clean']]
         print("Dados enviados: ", data_df)
         #
-        switch (bairro) {
-            case 'Moema':  reg = model_Moema;
-                     break;
-            case 'Perdizes':  reg = model_Perdizes;
-                     break;
-            case 'Brooklin':  reg = model_Brooklin;
-                     break;
-            case "Jardim Paulista":  reg = model_Jardim_Paulista;
-                     break;
-            case "Pinheiros":  reg = model_Pinheiros;
-                     break;
-            case "Vila Mariana":  reg = model_Vila_Mariana;
-                     break;
-            case "Vila Nova Conceição":  reg = model_Vila_Nova_Conceicao;
-                     break;
-            case "Vila Mascote":  reg = model_Vila_Mascote;
-                     break;
-            case "Jardim Marajoara":  reg = model_Jardim_Marajoara ;
-                     break;
-            case "Vila Romana": reg = model_Vila_Romana;
-                     break;
-            case "Morumbi": reg = model_Morumbi ;
-                     break;
-            case "Vila Leopoldina": reg = model_Vila_Leopoldina;
-                     break;
-            case "Campo Belo": reg = model_Campo_Belo;
-                     break;
-            case "Santana": reg = model_Santana;
-                     break;
-            case "Chácara Santo Antônio": reg = model_Chacara_Santo_Antonio;
-                     break;
+        print ("Bairro:", bairro)
+        if bairro == 'Moema':  
+            reg = model_Moema
+        if bairro == 'Perdizes':
+            reg = model_Perdizes
+        if bairro == 'Brooklin':
+            reg = model_Brooklin
+        if bairro == "Jardim Paulista":
+            reg = model_Jardim_Paulista
+        if bairro ==  "Pinheiros":
+            reg = model_Pinheiros
+        if bairro == "Vila Mariana":
+            reg = model_Vila_Mariana
+        if bairro == "Vila Nova Conceição":
+            reg = model_Vila_Nova_Conceicao
+        if bairro == "Vila Mascote":
+            reg = model_Vila_Mascote
+        if bairro == "Jardim Marajoara":
+            reg = model_Jardim_Marajoara 
+        if bairro == "Vila Romana":
+            reg = model_Vila_Romana
+        if bairro == "Morumbi": 
+           reg = model_Morumbi
+        if bairro == "Vila Leopoldina":
+           reg = model_Vila_Leopoldina
+        if bairro == "Campo Belo":
+           reg = model_Campo_Belo
+        if bairro ==  "Santana":
+           reg = model_Santana
+        if bairro == "Chácara Santo Antônio":
+           reg = model_Chacara_Santo_Antonio
             
         result = reg.predict(data_df)
         #result = model_rfr.predict(data_df)
