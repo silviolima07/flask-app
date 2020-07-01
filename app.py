@@ -27,7 +27,7 @@ model_Morumbi = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Morumbi.s
 model_Vila_Leopoldina = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Vila Leopoldina.sav','rb'))
 model_Campo_Belo = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Campo Belo.sav','rb'))
 model_Santana = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Santana.sav','rb'))
-model_Chacara_Santo_Antonio = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Chácara Santo Antônio.sav','rb'))
+model_Chacara_Santo_Antonio = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Chácara_Santo_Antônio.sav','rb'))
 model_Itaim_Bibi = pickle.load(open('Modelo_Bairros/KNeighborsRegressor-Itaim Bibi.sav','rb'))
 
 # app
