@@ -10,6 +10,24 @@ model_rf = pickle.load(open(filename_rf,'rb'))
 # Modelo criado sem fazer o StandartScaler
 filename_rfr = "RandomForestRegressor.sav"
 model_rfr = pickle.load(open(filename_rfr,'rb'))
+#
+model_Moema = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Moema.sav','rb'))
+model_Perdizes = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Perdizes.sav','rb'))
+model_Brooklin = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Brooklin.sav','rb'))
+model_Jardim_Paulista = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Jardim_Paulista.sav','rb'))
+model_Pinheiros = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Pinheiros.sav','rb'))
+model_Vila_Mariana = pickle.load(open('Modelo_Bairros/KNeighborsRegressor-Vila_Mariana.sav','rb'))
+model_Vila_Nova_Conceicao = pickle.load(open('Modelo_Bairros/KNeighborsRegressor-Vila_Nova_Conceição.sav','rb'))
+model_Vila_Mascote = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Vila_Mascote.sav','rb'))
+model_Jardim_Marajoara = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Jardim_Marajoara.sav','rb'))
+model_Vila_Romana = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Vila_Romana.sav','rb'))
+model_Morumbi = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Morumbi.sav','rb'))
+model_Vila_Leopoldina = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Vila_Leopoldina.sav','rb'))
+model_Campo_Belo = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Campo_Belo.sav','rb'))
+model_Santana = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Santana.sav','rb'))
+model_Chacara_Santo_Antonio = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Chácara_Santo_Antônio.sav','rb'))
+
+
 
 # app
 app = Flask(__name__)
@@ -59,9 +77,38 @@ def predict():
         data_df = data_df[['area_total_clean','area_util_clean', 'quarto_clean', 'banheiro_clean', 'vaga_clean']]
         print("Dados enviados: ", data_df)
         #
-        # O modelo treinado a ser usado nas previsões é definido pelo bairro
-        print(df_modelos['Bairro'])
-        reg = df_modelos['Bairro'] == str(bairro)].Modelo_treinado
+        switch (bairro) {
+            case 'Moema':  reg = model_Moema;
+                     break;
+            case 'Perdizes':  reg = model_Perdizes;
+                     break;
+            case 'Brooklin':  reg = model_Brooklin;
+                     break;
+            case "Jardim Paulista":  reg = model_Jardim_Paulista;
+                     break;
+            case "Pinheiros":  reg = model_Pinheiros;
+                     break;
+            case "Vila Mariana":  reg = model_Vila_Mariana;
+                     break;
+            case "Vila Nova Conceição":  reg = model_Vila_Nova_Conceicao;
+                     break;
+            case "Vila Mascote":  reg = model_Vila_Mascote;
+                     break;
+            case "Jardim Marajoara":  reg = model_Jardim_Marajoara ;
+                     break;
+            case "Vila Romana": reg = model_Vila_Romana;
+                     break;
+            case "Morumbi": reg = model_Morumbi ;
+                     break;
+            case "Vila Leopoldina": reg = model_Vila_Leopoldina;
+                     break;
+            case "Campo Belo": reg = model_Campo_Belo;
+                     break;
+            case "Santana": reg = model_Santana;
+                     break;
+            case "Chácara Santo Antônio": reg = model_Chacara_Santo_Antonio;
+                     break;
+            
         result = reg.predict(data_df)
         #result = model_rfr.predict(data_df)
         print("Result:", result)
