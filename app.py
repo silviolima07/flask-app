@@ -134,7 +134,7 @@ def predict():
         #result = model_rfr.predict(data_df)
         print("Result:", result)
         # send back to browser
-        result00 = np.expm1(int(result[0]))
+        result00 = round(np.expm1(int(result[0])),3)
         output = {'results' : result00}
         print("Result após np.exp1m:", result00)
         ##output = {'results': int(result[0])}  # Original ok
