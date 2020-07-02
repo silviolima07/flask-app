@@ -86,7 +86,9 @@ def predict():
         print("Dados enviados: ", data_df)
         #
         print(" ")
-        if bairro in lista_bairros:
+        print("Lista bairros:", lista_bairros)
+        print(" ")
+        if str(bairro) in lista_bairros:
             print("Sim, Moema em bairro")
 
         
@@ -101,48 +103,35 @@ def predict():
             reg = model_Perdizes
             print("Model Perdizes:", model_Perdizes)
 
-        if 'Brooklin' in bairro:
-            reg = model_Brooklin
-
         if 'Jardim Paulista' in bairro:
             reg = model_Jardim_Paulista
-
-        if 'Pinheiros' in bairro:
-            reg = model_Pinheiros
+            print("Model Jardim Paulista:", model_Jardim_Paulista)
 
         if 'Vila Mariana' in bairro:
             reg = model_Vila_Mariana
             print("Model Vila Mariana:", model_Vila_Mariana)
 
-        if 'Vila Nova Conceição' in bairro:
-            reg = model_Vila_Nova_Conceicao
 
         if 'Vila Mascote' in bairro:
             reg = model_Vila_Mascote
+            print("Model Vila Mascote:", model_Vila_Mascote)
 
         if 'Jardim Marajoara' in bairro:
-            reg = model_Jardim_Marajoara 
+            reg = model_Jardim_Marajoara
+            print("Model Jardim Marajoara:", model_Jardim_Marajoara)
 
         if 'Vila Romana' in bairro:
             reg = model_Vila_Romana
-
-        if 'Morumbi' in bairro: 
-           reg = model_Morumbi
-
-        if 'Vila Leopoldina' in bairro:
-           reg = model_Vila_Leopoldina
+            print("Model Vila Romana:", model_Vila_Romana)
 
         if 'Campo Belo' in bairro:
            reg = model_Campo_Belo
-
-        if 'Santana' in bairro:
-           reg = model_Santana
+           print("Model Campo Belo:", model_Campo_Belo)
 
         if 'Chacara Santo Antonio' in bairro:
            reg = model_Chacara_Santo_Antonio
+           print("Model Chacara Santo Antonio:", model_Chacara_Santo_Antonio)
            
-        if 'Itaim Bibi' in bairro:
-           reg = model_Itaim_Bibi 
 
 
         result = reg.predict(data_df)
