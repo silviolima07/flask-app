@@ -74,7 +74,7 @@ def predict():
         #
         #df_modelos = pd.read_csv("modelos_bairros.csv")
         
-        lista_bairros = ['Chacara Santo Antonio', 'Vila Mascote','Campo Belo','Jardim Marajoara','Jardim Paulista','Moema','Vila Romana','Perdizes','Vila_Mariana']
+        lista_bairros = ['Chacara Santo Antonio', 'Vila Mascote','Campo Belo','Jardim Marajoara','Jardim Paulista','Moema','Vila Romana','Perdizes','Vila Mariana']
 
         # predictions - regression
         print("Previsao de valor de venda")
@@ -85,18 +85,21 @@ def predict():
         data_df = data_df[['area_total_clean','area_util_clean', 'quarto_clean', 'banheiro_clean', 'vaga_clean']]
         print("Dados enviados: ", data_df)
         #
+        print(" ")
         if bairro in lista_bairros:
             print("Sim, Moema em bairro")
 
-        print("Model Moema:", model_Moema)
+        
         bairro = str(bairro)
         print ("Bairro:", bairro) # ['Moema']
 
         if 'Moema' in bairro:  
             reg = model_Moema
+            print("Model Moema:", model_Moema)
 
         if 'Perdizes' in bairro:
             reg = model_Perdizes
+            print("Model Perdizes:", model_Perdizes)
 
         if 'Brooklin' in bairro:
             reg = model_Brooklin
@@ -109,6 +112,7 @@ def predict():
 
         if 'Vila Mariana' in bairro:
             reg = model_Vila_Mariana
+            print("Model Vila Mariana:", model_Vila_Mariana)
 
         if 'Vila Nova Conceição' in bairro:
             reg = model_Vila_Nova_Conceicao
