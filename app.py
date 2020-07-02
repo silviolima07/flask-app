@@ -13,22 +13,25 @@ filename_rfr = "RandomForestRegressor.sav"
 model_rfr = pickle.load(open(filename_rfr,'rb'))
 #
 # ['Chácara Santo Antônio', 'Vila Mascote','Campo Belo','Jardim Marajoara','Jardim Paulista','Moema','Vila Romana','Perdizes','Vila_Mariana']
+
 model_Moema = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Moema.sav','rb'))
-model_Perdizes = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Perdizes.sav','rb'))
-#model_Brooklin = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Brooklin.sav','rb'))
+
+model_Perdizes = pickle.load(open('Modelo_Bairros/RandomForestRegressor-Perdizes.sav','rb'))
+
 model_Jardim_Paulista = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Jardim_Paulista.sav','rb'))
-#model_Pinheiros = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Pinheiros.sav','rb'))
+
 model_Vila_Mariana = pickle.load(open('Modelo_Bairros/RandomForestRegressor-Vila_Mariana.sav','rb'))
-#model_Vila_Nova_Conceicao = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Vila Nova Conceição.sav','rb'))
+
 model_Vila_Mascote = pickle.load(open('Modelo_Bairros/DecisionTreeRegressor-Vila_Mascote.sav','rb'))
+
 model_Jardim_Marajoara = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Jardim_Marajoara.sav','rb'))
+
 model_Vila_Romana = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Vila_Romana.sav','rb'))
-#model_Morumbi = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Morumbi.sav','rb'))
-#model_Vila_Leopoldina = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Vila Leopoldina.sav','rb'))
+
 model_Campo_Belo = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Campo_Belo.sav','rb'))
-#model_Santana = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Santana.sav','rb'))
+
 model_Chacara_Santo_Antonio = pickle.load(open('Modelo_Bairros/DecisionTreeRegressor-Chácara_Santo_Antônio.sav','rb'))
-#model_Itaim_Bibi = pickle.load(open('Modelo_Bairros/KNeighborsRegressor-Itaim Bibi.sav','rb'))
+
 
 # app
 app = Flask(__name__)
@@ -71,7 +74,7 @@ def predict():
         #
         #df_modelos = pd.read_csv("modelos_bairros.csv")
         
-        lista_bairros = ['Chácara Santo Antônio', 'Vila Mascote','Campo Belo','Jardim Marajoara','Jardim Paulista','Moema','Vila Romana','Perdizes','Vila_Mariana']
+        lista_bairros = ['Chacara Santo Antonio', 'Vila Mascote','Campo Belo','Jardim Marajoara','Jardim Paulista','Moema','Vila Romana','Perdizes','Vila_Mariana']
 
         # predictions - regression
         print("Previsao de valor de venda")
@@ -131,7 +134,7 @@ def predict():
         if 'Santana' in bairro:
            reg = model_Santana
 
-        if 'Chácara Santo Antônio' in bairro:
+        if 'Chacara Santo Antonio' in bairro:
            reg = model_Chacara_Santo_Antonio
            
         if 'Itaim Bibi' in bairro:
