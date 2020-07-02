@@ -16,10 +16,10 @@ model_Moema = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Moema.sav','r
 model_Perdizes = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Perdizes.sav','rb'))
 model_Brooklin = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Brooklin.sav','rb'))
 model_Jardim_Paulista = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Jardim Paulista.sav','rb'))
-#model_Pinheiros = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Pinheiros.sav','rb'))
-#model_Vila_Mariana = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Vila Mariana.sav','rb'))
-#model_Vila_Nova_Conceicao = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Vila Nova Conceição.sav','rb'))
-#model_Vila_Mascote = pickle.load(open('Modelo_Bairros/DecisionTreeRegressor-Vila Mascote.sav','rb'))
+model_Pinheiros = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Pinheiros.sav','rb'))
+model_Vila_Mariana = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Vila Mariana.sav','rb'))
+model_Vila_Nova_Conceicao = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Vila Nova Conceição.sav','rb'))
+model_Vila_Mascote = pickle.load(open('Modelo_Bairros/DecisionTreeRegressor-Vila Mascote.sav','rb'))
 #model_Jardim_Marajoara = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Jardim Marajoara.sav','rb'))
 #model_Vila_Romana = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Vila Romana.sav','rb'))
 #model_Morumbi = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Morumbi.sav','rb'))
@@ -27,7 +27,7 @@ model_Jardim_Paulista = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Jar
 #model_Campo_Belo = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Campo Belo.sav','rb'))
 #model_Santana = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Santana.sav','rb'))
 #model_Chacara_Santo_Antonio = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Chácara_Santo_Antônio.sav','rb'))
-#model_Itaim_Bibi = pickle.load(open('Modelo_Bairros/KNeighborsRegressor-Itaim Bibi.sav','rb'))
+model_Itaim_Bibi = pickle.load(open('Modelo_Bairros/KNeighborsRegressor-Itaim Bibi.sav','rb'))
 
 # app
 app = Flask(__name__)
@@ -129,7 +129,11 @@ def predict():
 
         if 'Chácara Santo Antônio' in bairro:
            reg = model_Chacara_Santo_Antonio
-            
+           
+        if 'Itaim Bibi' in bairro:
+           reg = model_Itaim_Bibi 
+
+
         result = reg.predict(data_df)
         #result = model_rfr.predict(data_df)
         print("Result:", result)
