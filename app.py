@@ -13,7 +13,6 @@ filename_rfr = "RandomForestRegressor.sav"
 model_rfr = pickle.load(open(filename_rfr,'rb'))
 #
 model_Moema = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Moema.sav','rb'))
-
 model_Perdizes = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Perdizes.sav','rb'))
 model_Brooklin = pickle.load(open('Modelo_Bairros/RandonForestRegressor-Brooklin.sav','rb'))
 model_Jardim_Paulista = pickle.load(open('Modelo_Bairros/ExtraTreesRegressor-Jardim Paulista.sav','rb'))
